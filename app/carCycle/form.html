@@ -1,0 +1,66 @@
+<div role="form">
+  <div class="box-body" >
+    <div class="col-xs-12 col-sm-4">
+      <div class="form-group">
+        <!--Nome-->
+        <label for="name">Nome</label>
+        <input id="name" class="form-control" placeholder="Informe o nome" ng-model="carCycle.brand">
+      </div>
+    </div>
+        <!--Modelo-->
+      <div class="col-xs-12 col-sm-4">
+        <div class="form-group">
+          <label for="model">Modelo</label>
+          <input type="text" id="model" class="form-control" placeholder="Informe o modelo" ng-model="carCycle.model">
+        </div>
+      </div>
+        <!--Ano -->
+      <div class="col-xs-12 col-sm-4">
+        <div class="form-group">
+          <label for="year">Ano</label>
+          <input type="number" id="year" class="form-control" placeholder="Informe o ano" ng-model="carCycle.year">
+        </div>
+      </div>
+        <!--Cor -->
+      <div class="col-xs-12 col-sm-4">
+        <div class="form-group">
+          <label for="color">Cor</label>
+          <input type="text" id="color" class="form-control" placeholder="Informe a cor" ng-model="carCycle.color">
+        </div>
+      </div>
+        <!-- placa-->
+      <div class="col-xs-12 col-sm-4">
+        <div class="form-group">
+          <label for="board">Placa</label>
+          <input type="text" id="board" class="form-control" placeholder="Informe a placa" ng-model="carCycle.board">
+        </div>
+      </div>
+        <!-- Renavan-->
+      <div class="col-xs-12 col-sm-4">
+        <div class="form-group">
+          <label for="renavan">Renavan</label>
+          <input type="number" id="renavan" class="form-control" placeholder="Informe o renavan" ng-model="carCycle.renavan">
+        </div>
+      </div>
+        <!-- valor-->
+      <div class="col-xs-12 col-sm-4">
+        <div class="form-group">
+          <label for="value">Valor</label>
+          <input type="number" id="value" class="form-control" placeholder="Informe o valor" ng-model="carCycle.value">
+        </div>
+      </div>
+        <!-- Valor de venda-->
+      <div class="col-xs-12 col-sm-4">
+        <div class="form-group">
+          <label for="valuev" id="valuev">Valor de Venda</label>
+          <input type="number" id="valuev" class="form-control" placeholder="Informe o valor de venda" ng-model="car.valuev">
+      </div>
+    </div>
+  </div>
+  <div class="box-footer">
+    <button class="btn btn-primary" ng-click="createCarCycle()">Incluir</button>
+    <button class="btn btn-info" ng-click="updateCarCycle()">Alterar</button>
+    <button class="btn btn-danger" ng-click="deleteCarCycle()">Excluir</button>
+    <button class="btn btn-defaul">Cancelar</button>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<div role="form">
+  <div class="box-body">
+    <field id="clientCycleClientId" label="Nome" model="clientCycle.name" placeholder="Informe o Nome"
+    grid="12 6 4" readonly="tabDelete"></field>
+    <field id="clientCyclePatch" label="CPF" model="clientCycle.cpf" type="number"
+    placeholder="Informe o CPF" grid="12 6 4" readonly="tabDelete"></field>
+    <field id="clientCyclePatch" label="RG" model="clientCycle.rg" type="number"
+    placeholder="Informe o RG" grid="12 6 4" readonly="tabDelete"></field>
+    <field id="clientCycleType" label="Cidade" model="clientCycle.city" placeholder="Informe a Cidade"
+    grid= "12 6 4" readonly="tabDelete"></field>
+    <field id="clientCycleType" label="Estado" model="clientCycle.state" placeholder="Informe o Estado"
+    grid="12 6 4" readonly="tabDelete"></field>
+    <field id="clientCyclePatch" label="Estado" model="clientCycle.cep" type="number"
+    placeholder="Informe o CEP" grid="12 6 4" readonly="tabDelete"></field>
+    <field id="clientCyclePatch" label="Telefone" model="clientCycle.celphone" type="number"
+    placeholder="Informe o Telefone" grid="12 6 4" readonly=tabDelete></field>
+
+    <hr>
+
+    <div class="col-xs-12">
+      <fieldset>
+        <legend>Resumo</legend>
+        <div ng-include="clientCycle/summary.html"></div>
+      </fieldset>
+    </div>
+  </div>
+
+  <div class="box-footer">
+    <button class="btn btn-primary" ng-click="createClientCycle()"
+    ng-if="tabCreate">Incluir</button>
+    <button class="btn btn-info" ng-click="updateClientCycle()"
+    ng-if="tabUpdate">Alterar</button>
+    <button class="btn btn-danger" ng-click="deleteClientCycle()"
+    ng-if="tabDelete">Delete</button>
+    <button class="btn btn-defalt" ng-click="cancel()">Cancelar</button>
+  </div>
+</div>
