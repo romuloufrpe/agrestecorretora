@@ -1,10 +1,11 @@
 angular.module('primeiraApp').constant('consts', {
-  appName: 'Agreste Car',
+  appName: 'Agreste Corretora',
   version: '1.0',
-  owner: 'Urminino',
-  year: '2018',
-  site: 'http://cod3r.com.br',
+  owner: 'Urmininu',
+  year: '2017',
   apiUrl: 'http://localhost:3003/api',
+  oapiUrl: 'http://localhost:3003/oapi',
+  userKey: '_primeira_app_user'
 }).run(['$rootScope', 'consts', function($rootScope, consts) {
   $rootScope.consts = consts
 }])

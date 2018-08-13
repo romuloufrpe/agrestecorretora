@@ -9,6 +9,7 @@
         <th>Cidade</th>
         <th>Estado</th>
         <th>Telefone</th>
+        <th>Status</th>
       </tr>
     </thead>
 
@@ -20,6 +21,7 @@
         <td>{{:: clientCycle.city}}</td>
         <td>{{:: clientCycle.state}}</td>
         <td>{{:: clientCycle.celphone}}</td>
+        <td>{{:: clientCycle.status}}</td>
         <td style="width:100px;">
           <button class="btn btn-warning" ng-click="showTabUpdate(clientCycle)"> <i class="fa fa-pencil"></i></button>
           <button class="btn btn-danger" ng-click="showTabDelete(clientCycle)"> <i class="fa fa-trash-o"></i> </button>
@@ -29,5 +31,5 @@
   </table>
 </div>
 <div class="box-footer clearfix">
-  <paginator url="/#!/clientCycles" page="{{ pages }}"></paginator>
+   <paginator url="/#!/clientCycles" pages="{{ pages }}"></paginator>
 </div>

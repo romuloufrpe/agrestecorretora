@@ -24,14 +24,24 @@ function CarCycleController($scope, $http, $location, msgs, tabs, consts) {
     })
   }
 
-  $scope.createCarCycle = function() {
+  $scope.obtemDado = function(req, res){
+
+    var _id = req.params.id;
+    getCarCycles.findById(_id).exec().then(function(response){
+      msgs.addSuccess('Operação realizada com sucesso!')
+    }).catch(function(res){
+      msgs.addError(res.data.errors)
+    })
+  }
+
+  $scope.createCarCycle = function(){
     const url = `${consts.apiUrl}/carCycles`;
-    $http.post(url, $scope.carCycle).then(function(response) {
+    $http.post(url,$scope.carCycle).then(function(response){
       $scope.carCycle = {}
       initCarsAndOuts()
       $scope.getCarCycles()
-      msgs.addSuccess('Operação realizada com sucesso!!')
-    }).catch(function(resp) {
+      msgs.addSuccess('Operação realizada com sucesso!')
+    }).catch(function(resp){
       msgs.addError(resp.data.errors)
     })
   }
@@ -74,16 +84,16 @@ function CarCycleController($scope, $http, $location, msgs, tabs, consts) {
     })
   }
 
-  $scope.addOut = function(index) {
+  $scope.addDebt = function(index) {
     $scope.carCycle.outs.splice(index + 1, 0, {})
   }
 
-  $scope.cloneOut = function(index, {name, value, status}) {
+  $scope.cloneDebt = function(index, {name, value, status}) {
     $scope.carCycle.outs.splice(index + 1, 0, {name, value, status})
     initCarsAndOuts()
   }
 
-  $scope.deleteOut = function(index) {
+  $scope.deleteDebt = function(index) {
     $scope.carCycle.outs.splice(index, 1)
     initCarsAndOuts()
   }

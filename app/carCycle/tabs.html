@@ -1,36 +1,52 @@
-<content-header name="Cadastro de Carro" small="Cadastro"></content-header>
+<content-header name="Carro" small="Cadastro"></content-header>
 
 
 <section class="content">
-  <div class="nav-tabs-custom" ng-controller="CarCycleCtrl" >
+  <div class="nav-tabs-custom" ng-controller="CarCycleCtrl">
     <ul class="nav nav-tabs">
-      <li>
-        <a href data-target=#tabList data-toggle="tab">
-          <i class="fa fa-bars"></i> Lista
+      <li ng-if="tabList" ng-class="{active: tabList}">
+         <a href data-target="#tabList" data-toggle="tab">
+           <i class="fa fa-bars"></i> Lista
         </a>
-      </li>
-      <li >
-        <a href data-target=#tabCreate data-toggle="tab">
-          <i class="fa fa-plus"></i> Incluir
+     </li>
+     <li ng-if="tabCreate">
+        <a href data-target="#tabCreate" data-toggle="tab">
+           <i class="fa fa-plus"></i> Incluir
         </a>
-      </li>
-      <li>
-        <a href data-target=#tabUpdate data-toggle="tab">
-          <i class="fa fa-pencil"></i> Alterar
+     </li>
+     <li ng-if="tabUpdate" ng-class="{active: tabUpdate}">
+        <a href data-target="#tabUpdate" data-toggle="tab">
+           <i class="fa fa-pencil"></i> Alterar
         </a>
-      </li>
-      <li>
-        <a href data-target=#tabDelete data-toggle="tab">
-          <i class="fa fa-trash-o"></i> Excluir
+     </li>
+      <li ng-if="tabDelete" ng-class="{active: tabDelete}">
+         <a href data-target="#tabDelete" data-toggle="tab">
+           <i class="fa fa-trash-o"></i> Excluir
         </a>
-      </li>
-    </ul>
+     </li>
 
+     
+    </ul>
     <div class="tab-content">
-      <div class="tab-pane" id="tabList"  ng-include = "'carCycle/list.html'"></div>
-      <div class="tab-pane" id="tabCreate" ng-include = "'carCycle/form.html'"></div>
-      <div class="tab-pane" id="tabUpdate" ng-include = "'carCycle/form.html'"></div>
-      <div class="tab-pane" id="tabDelete" ng-include = "'carCycle/form.html'"></div>
+      <div class="tab-pane"
+          id="tabList"
+          ng-if="tabList"
+          ng-class="{active: tabList}"
+          ng-include="'carCycle/list.html'"></div>
+      <div class="tab-pane"
+          id="tabCreate"
+          ng-if="tabCreate"
+          ng-include="'carCycle/form.html'"></div>
+      <div class="tab-pane"
+          id="tabUpdate"
+          ng-if="tabUpdate"
+          ng-class="{active: tabUpdate}"
+          ng-include="'carCycle/form.html'"></div>
+      <div class="tab-pane"
+          id="tabDelete"
+          ng-if="tabDelete"
+          ng-class="{active: tabDelete}"
+          ng-include="'carCycle/form.html'"></div>
     </div>
   </div>
 </section>

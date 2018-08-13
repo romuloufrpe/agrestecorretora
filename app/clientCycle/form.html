@@ -10,21 +10,18 @@
     grid= "12 6 4" readonly="tabDelete"></field>
     <field id="clientCycleType" label="Estado" model="clientCycle.state" placeholder="Informe o Estado"
     grid="12 6 4" readonly="tabDelete"></field>
-    <field id="clientCyclePatch" label="Estado" model="clientCycle.cep" type="number"
+    <field id="clientCyclePatch" label="CEP" model="clientCycle.cep" type="number"
     placeholder="Informe o CEP" grid="12 6 4" readonly="tabDelete"></field>
     <field id="clientCyclePatch" label="Telefone" model="clientCycle.celphone" type="number"
     placeholder="Informe o Telefone" grid="12 6 4" readonly=tabDelete></field>
-
-    <hr>
-
-    <div class="col-xs-12">
-      <fieldset>
-        <legend>Resumo</legend>
-        <div ng-include="clientCycle/summary.html"></div>
-      </fieldset>
+    <div class="col-xs-12 col-lg-6 col-lg-4">
+      <label id="clientCycleID">Status</label>
+      <select class="form-control" ng-model="clientCycle.status">
+        <option>INTERESSADO</option>
+      </select>
     </div>
   </div>
-
+    <hr>
   <div class="box-footer">
     <button class="btn btn-primary" ng-click="createClientCycle()"
     ng-if="tabCreate">Incluir</button>

@@ -1,66 +1,48 @@
 <div role="form">
   <div class="box-body" >
-    <div class="col-xs-12 col-sm-4">
-      <div class="form-group">
-        <!--Nome-->
-        <label for="name">Nome</label>
-        <input id="name" class="form-control" placeholder="Informe o nome" ng-model="carCycle.brand">
-      </div>
+    <!-- NOME-->
+    <field id="carCyclePath" label="Nome" model="carCycle.brand" placeholder="Informe o Nome"
+    grid ="12 6 4" readonly="tabDelete"></field>
+    <!-- MODELO-->
+    <field id="carCyclePath" label="Modelo" model="carCycle.model" placeholder="Informe o Modelo"
+    grid ="12 6 4" readonly="tabDelete"></field>
+    <!--ANO-->
+    <field id="carCyclePath" label="Ano" model="carCycle.year" placeholder="Informe o Ano"
+    type= "number" grid="12 6 4" reandoly="tabDelete"></field>
+    <!--COR-->
+    <field id="carCycleType" label="Cor" model="carCycle.color" placeholder="Informe a Cor"
+    grid = "12 6 4" reandoly="tabDelete"></field>
+    <!--PLACA-->
+    <field id="carCyclePath" label="Placa" model="carCycle.board" placeholder="Informe a Placa"
+    grid = "12 6 4" reandoly="tabDelete"></field>
+    <!--RENAVAN-->
+    <field id="carCyclePath" label="Renavan" model="carCycle.renavan" placeholder="Informe o Renavan"
+    grid = "12 6 4" reandoly="tabDelete"></field>
+    <!--VALOR-->
+    <field id="carCyclePath" label="Valor" model="carCycle.value" placeholder="Ïnforme o Valor"
+    type="number" grid = "12 6 4" reandoly="tabDelete"></field>
+    <!--VALOR DE VENDA-->
+    <field id="carCyclePath" label="Valor de Venda" model="carCycle.valuev" placeholder="Informe o Valor de Venda"
+    type="number" grid="12 6 4" reandoly="tabDelete"></field>
+
+    <div class="col-xs-12 col-lg-6 col-lg-4">
+      <label id="carCycleID">Status</label>
+      <select class="form-control" ng-model="carCycle.status">
+        <option>DISPONIVEL</option>
+        <option>VENDIDO</option>
+        <option>OFICINA</option>
+      </select>
     </div>
-        <!--Modelo-->
-      <div class="col-xs-12 col-sm-4">
-        <div class="form-group">
-          <label for="model">Modelo</label>
-          <input type="text" id="model" class="form-control" placeholder="Informe o modelo" ng-model="carCycle.model">
-        </div>
-      </div>
-        <!--Ano -->
-      <div class="col-xs-12 col-sm-4">
-        <div class="form-group">
-          <label for="year">Ano</label>
-          <input type="number" id="year" class="form-control" placeholder="Informe o ano" ng-model="carCycle.year">
-        </div>
-      </div>
-        <!--Cor -->
-      <div class="col-xs-12 col-sm-4">
-        <div class="form-group">
-          <label for="color">Cor</label>
-          <input type="text" id="color" class="form-control" placeholder="Informe a cor" ng-model="carCycle.color">
-        </div>
-      </div>
-        <!-- placa-->
-      <div class="col-xs-12 col-sm-4">
-        <div class="form-group">
-          <label for="board">Placa</label>
-          <input type="text" id="board" class="form-control" placeholder="Informe a placa" ng-model="carCycle.board">
-        </div>
-      </div>
-        <!-- Renavan-->
-      <div class="col-xs-12 col-sm-4">
-        <div class="form-group">
-          <label for="renavan">Renavan</label>
-          <input type="number" id="renavan" class="form-control" placeholder="Informe o renavan" ng-model="carCycle.renavan">
-        </div>
-      </div>
-        <!-- valor-->
-      <div class="col-xs-12 col-sm-4">
-        <div class="form-group">
-          <label for="value">Valor</label>
-          <input type="number" id="value" class="form-control" placeholder="Informe o valor" ng-model="carCycle.value">
-        </div>
-      </div>
-        <!-- Valor de venda-->
-      <div class="col-xs-12 col-sm-4">
-        <div class="form-group">
-          <label for="valuev" id="valuev">Valor de Venda</label>
-          <input type="number" id="valuev" class="form-control" placeholder="Informe o valor de venda" ng-model="car.valuev">
-      </div>
-    </div>
+
+    <hr>
   </div>
   <div class="box-footer">
-    <button class="btn btn-primary" ng-click="createCarCycle()">Incluir</button>
-    <button class="btn btn-info" ng-click="updateCarCycle()">Alterar</button>
-    <button class="btn btn-danger" ng-click="deleteCarCycle()">Excluir</button>
-    <button class="btn btn-defaul">Cancelar</button>
+    <button class="btn btn-primary" ng-click="createCarCycle()"
+         ng-if="tabCreate">Incluir</button>
+    <button class="btn btn-info" ng-click="updateCarCycle()"
+         ng-if="tabUpdate">Alterar</button>
+    <button class="btn btn-danger" ng-click="deleteCarCycle()"
+         ng-if="tabDelete">Excluir</button>
+    <button class="btn btn-default" ng-click="cancel()">Cancelar</button>
   </div>
 </div>
