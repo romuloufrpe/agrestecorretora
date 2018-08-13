@@ -4,15 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "ng": "ng",
-    "start": "node server.js",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "gulp",
     "production": "gulp --production"
-  },
+},
   "author": "",
   "license": "ISC",
   "dependencies": {
