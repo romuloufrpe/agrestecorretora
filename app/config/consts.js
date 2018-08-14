@@ -4,6 +4,7 @@ angular.module('primeiraApp').constant('consts', {
   owner: 'Urmininu',
   year: '2017',
   apiUrl: 'https://agreste-b.herokuapp.com/api',
+  oapiUrl: 'https://agreste-b.herokuapp.com/oapi',
   userKey: '_primeira_app_user'
 }).run(['$rootScope', 'consts', function($rootScope, consts) {
   $rootScope.consts = consts
