@@ -1,64 +1,48 @@
-angular.module('primeiraApp').factory('auth', [
-    '$http',
-    '$rootScope',
-    'consts',
-    AuthFactory
-])
+(function () {
 
-function AuthFactory($http, $rootScope, consts) {
+    angular.module('primeiraApp').factory('auth', [
+        '$http',
+        AuthFactory
+    ])
 
-    let user = null
+    function AuthFactory($http) {
 
-    function signup(user, callback) {
-        submit('signup', user, callback)
-    }
+        let user = null
+        const url_api = 'http://localhost:3003/api'
+		const url_api_heroku = 'https://agreste-b.herokuapp.com/api'
 
-    function login(user, callback) {
-        submit('login', user, callback)
-    }
+        function getUser() {
+            if (!user) {
+                user = JSON.parse(localStorage.getItem('user'))
+            }
+            return user
+        }
 
-    function submit(url, user, callback) {
-        $http.post(`${consts.oapiUrl}/${url}`, user)
-            .then(resp => {
-                localStorage.setItem(consts.userKey, JSON.stringify(resp.data))
-                $http.defaults.headers.common.Authorization = resp.data.token
-                if (callback) callback(null, resp.data)
-            }).catch(function (resp) {
-                if (callback) callback(resp.data.errors, resp.data)
-            })
-    }
+        function signup(user, callback) {
+            submit('signup', user, callback)
+        }
 
-    function logout(callback) {
-        user = null
-        localStorage.removeItem(consts.userKey)
-        $http.defaults.headers.common.Authorization = ''
-        if (callback) callback(null)
-    }
+        function login(user, callback) {
+            submit('login', user, callback)
+        }
 
-    function validateToken(token, callback) {
-        if (token) {
-            $http.post(`${consts.oapiUrl}/validateToken`, { token })
+        function submit(url, user, callback) {
+            $http.post(`${url_api_heroku}/${url}`, user)
                 .then(resp => {
-                    if (!resp.data.valid) {
-                        logout()
-                    } else {
-                        $http.defaults.headers.common.Authorization = getUser().token
-                    }
-                    if (callback) callback(null, resp.data.valid)
+                    localStorage.setItem('user', JSON.stringify(resp.data))
+                    if (callback) callback(null, resp.data)
                 }).catch(function (resp) {
-                    if (callback) callback(resp.data.errors)
+                    if (callback) callback(resp.data.errors, null)
                 })
-        } else {
-            if (callback) callback('Token inválido.')
         }
-    }
 
-    function getUser() {
-        if(!user) {
-            user = JSON.parse(localStorage.getItem(consts.userKey))
-        }
-        return user
-    }
-
-    return { signup, login, logout, validateToken, getUser }
+        function logout(callback) {
+            user = null
+            localStorage.removeItem('user')
+            if (callback) callback(null)
 }
+
+        return { signup, login, logout, getUser }
+    }
+
+})()
