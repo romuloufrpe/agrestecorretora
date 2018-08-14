@@ -28,7 +28,7 @@ angular.module('primeiraApp').config([
 
     function validateUser() {
       const user = auth.getUser()
-      const authPage = '/auth.html'
+      const authPage = '/dashboard.html'
       const isAuthPage = $window.location.href.includes(authPage)
 
       if (!user && !isAuthPage) {
