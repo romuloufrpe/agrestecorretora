@@ -3,7 +3,7 @@ angular.module('primeiraApp').constant('consts', {
   version: '1.0',
   owner: 'Urmininu',
   apiURL:'https://agreste-b.herokuapp.com/api',
-  oapiURL: 'https://agreste-b.herokuapp.com/oapi'
+  oapiURL: 'https://agreste-b.herokuapp.com/oapi',
   year: '2017',
   userKey: '_primeira_app_user'
 }).run(['$rootScope', 'consts', function($rootScope, consts) {
