@@ -1,5 +1,5 @@
 (function () {
-    angular.module('SGC').factory('handleResponseError', [
+    angular.module('primeiraApp').factory('handleResponseError', [
         '$q',
         '$window',
         HandleResponseErrorFactory
